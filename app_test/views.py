@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from .forms import SignUpForm
+from django.contrib.auth.decorators import login_required
 
 class SignUp(CreateView):
     form_class = SignUpForm
@@ -16,5 +17,6 @@ class SignUp(CreateView):
         self.object = user 
         return HttpResponseRedirect(self.get_success_url())
 
+@login_required(login_url='/accounts/login/')
 def index(request):
     return render(request, 'app_test/index.html')

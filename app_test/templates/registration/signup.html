@@ -1,5 +1,8 @@
-{% extends 'registration/base.html' %}
+{% extends 'common/base.html' %}
 {% block content %}
+<head>
+  <title>新規登録</title>
+</head>
 <main>
 <h2>登録画面</h2>
 <form method="post" action="{% url 'signup' %}">
@@ -19,6 +22,7 @@
       </tr>
   </table>
   <button type="submit">登録</button>
+  <a href="{% url 'login' %}">ログイン</a>
 
 {% if form.errors %}
     {% for field in form %}
