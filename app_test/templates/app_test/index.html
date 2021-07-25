@@ -10,6 +10,7 @@
     <p class="Yasu">Hello, World.</p>
     <button id="YasuAction" class="YasuButton" type="button">押してね！</button>
     <a href="{% url 'logout' %}?next=/accounts/login/">ログアウト</a>
+    <a href="{% url 'app_test:new' %}">新規キャラ登録</a>
     <script src="{% static 'js/app.js' %}"></script>
   </body>
 </html>

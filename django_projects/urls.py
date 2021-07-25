@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 from app_test.views import SignUp
 from django.contrib.auth import views as auth_views
+from django.conf import settings
 
 urlpatterns = [
     path('app_test/', include('app_test.urls')),
@@ -25,3 +26,9 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout')
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
